@@ -8,6 +8,8 @@ export const Icon = ({
   stroke,
   isInputStyled,
 }) => {
+  const basePath =
+    import.meta.env.MODE === 'production' ? import.meta.env.BASE_URL : '/';
   return (
     <svg
       className={isInputStyled ? css.icon : null}
@@ -17,7 +19,7 @@ export const Icon = ({
       fill={fill}
       stroke={stroke}
     >
-      <use xlinkHref={`../../../public/sprite.svg#${id}`} />
+      <use xlinkHref={`${basePath}sprite.svg#${id}`} />
     </svg>
   );
 };
