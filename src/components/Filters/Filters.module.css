@@ -23,6 +23,7 @@
   flex-wrap: wrap;
   column-gap: 10px;
   row-gap: 8px;
+  margin-bottom: 32px;
 }
 
 .wrapperItem {
@@ -35,10 +36,16 @@
   border: 1px solid rgba(16, 24, 40, 0.2);
   mix-blend-mode: multiply;
   height: 95px;
+  transition: var(--animation);
 }
 
-.wrapper:not(:last-child) {
-  margin-bottom: 32px;
+.wrapperItem:hover {
+  border: 1px solid var(--color-red);
+  cursor: pointer;
+}
+
+.wrapper:last-of-type {
+  margin-bottom: 64px;
 }
 
 .wrapperItem button {
@@ -48,4 +55,28 @@
 .content {
   max-width: 80px;
   margin-top: 8px;
+  color: #101828;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.submit {
+  padding: 16px 60px;
+  border-radius: 200px;
+  background-color: var(--color-red);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.08px;
+  transition: var(--animation);
+}
+
+.submit:hover {
+  background-color: #d14545;
+}
+
+.checked {
+  composes: wrapperItem;
+  border: 1px solid var(--color-red);
 }
