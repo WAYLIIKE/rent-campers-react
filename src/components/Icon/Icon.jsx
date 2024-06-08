@@ -9,7 +9,9 @@ export const Icon = ({
   isInputStyled,
 }) => {
   const basePath =
-    import.meta.env.MODE === 'production' ? import.meta.env.BASE_URL : '/';
+    import.meta.env.MODE === 'production'
+      ? `${import.meta.env.BASE_URL}/`
+      : '/';
   return (
     <svg
       className={isInputStyled ? css.icon : null}
