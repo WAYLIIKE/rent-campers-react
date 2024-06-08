@@ -17,7 +17,7 @@ export const Icon = ({
       fill={fill}
       stroke={stroke}
     >
-      <use xlinkHref={`/sprite.svg#${id}`} />
+      <use xlinkHref={`../../../public/sprite.svg#${id}`} />
     </svg>
   );
 };

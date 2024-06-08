@@ -10,7 +10,7 @@ campers and left a contact for booking some of campervan.
 
 1.  Clone the repository
     ```sh
-    git clone: https://github.com/WAYLIIKE/watertrack-project-nodejs-react.git
+    git clone: https://github.com/WAYLIIKE/rent-campers-react.git
     ```
 2.  Install dependencies
     ```sh
