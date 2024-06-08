@@ -13,4 +13,12 @@ export default defineConfig({
     },
   },
   base: '/rent-campers-react',
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        404: '404.html',
+      },
+    },
+  },
 });
