@@ -6,7 +6,7 @@ export const Icon = ({
   height = 24,
   fill,
   stroke,
-  isInputStyled,
+  isInputStyled = false,
 }) => {
   const basePath =
     import.meta.env.MODE === 'production'
