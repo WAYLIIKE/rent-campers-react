@@ -4,27 +4,28 @@
 /* Font connection */
 @font-face {
   font-family: 'Inter';
-  src: url('/public/Inter-Regular.ttf');
+  src: url('/Inter-Regular.ttf');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('/public/Inter-Medium.ttf');
+  src: url('/Inter-Medium.ttf');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('/public/Inter-SemiBold.ttf');
+  src: url('/Inter-SemiBold.ttf');
   font-weight: 600;
   font-style: normal;
 }
 
 :root {
   --color-dark: #101828;
+  --color-darkopacity: #10182899;
   --color-grey: #475467;
   --color-red: #e44848;
   --color-yellow: #ffc531;
@@ -39,7 +40,7 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   font-family: 'Inter', sans-serif;
-  color: #111111;
+  color: var(--color-dark);
   margin: 0;
 }
 
@@ -69,4 +70,10 @@ img {
 
 button {
   cursor: pointer;
+  border: none;
+}
+
+input {
+  border: none;
+  outline: none;
 }
