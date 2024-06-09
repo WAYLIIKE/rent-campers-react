@@ -1,3 +1,4 @@
+import { CamperAdvantages } from '../CamperAdvantages/CamperAdvantages';
 import { Icon } from '../Icon/Icon';
 import css from './CamperListItem.module.css';
 
@@ -29,16 +30,37 @@ export const CamperListItem = ({ camper }) => {
             </button>
           </div>
         </div>
-        <div>
-          <Icon
-            id={'icon-star'}
-            width={16}
-            height={16}
-            fill="none"
-            stroke="currentColor"
-          />
-          <p>{camper.rating}()</p>
+        <div className={css.secondaryWrapper}>
+          <div className={css.secondaryContent}>
+            <Icon
+              id={'icon-star'}
+              width={16}
+              height={16}
+              fill="none"
+              stroke="currentColor"
+            />
+            <p className={css.rating}>
+              {camper.rating}(
+              {camper.reviews.length > 1
+                ? `${camper.reviews.length} Reviews`
+                : `${camper.reviews.length} Review`}
+              )
+            </p>
+          </div>
+          <div className={css.secondaryContent}>
+            <Icon
+              id={'icon-location'}
+              width={16}
+              height={16}
+              fill="none"
+              stroke="currentColor"
+            />
+            <p className={css.location}>{camper.location}</p>
+          </div>
         </div>
+        <p className={css.description}>{camper.description}</p>
+        <CamperAdvantages camper={camper} />
+        <button className={css.button}>Show more</button>
       </div>
     </li>
   );
