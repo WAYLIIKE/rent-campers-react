@@ -72,6 +72,10 @@ button {
   cursor: pointer;
   border: none;
   padding: 0;
+  background-color: transparent;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.08px;
 }
 
 input {

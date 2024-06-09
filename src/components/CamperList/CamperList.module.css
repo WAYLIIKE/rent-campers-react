@@ -1,0 +1,17 @@
+.list {
+  margin-bottom: 50px;
+}
+
+.button {
+  display: block;
+  padding: 16px 32px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  border-radius: 200px;
+  border: 1px solid rgba(71, 84, 103, 0.2);
+  transition: var(--animation);
+}
+
+.button:hover {
+  border: 1px solid var(--color-red);
+}

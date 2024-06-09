@@ -10,7 +10,12 @@ export const LocationInput = () => {
         Location
       </label>
       <div className={css.inputWrapper}>
-        <input className={css.input} type="text" id={inputId} />
+        <input
+          className={css.input}
+          type="text"
+          id={inputId}
+          placeholder="Country, City"
+        />
         <Icon
           id={'icon-location'}
           width={18}
