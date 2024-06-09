@@ -82,3 +82,57 @@ input {
   border: none;
   outline: none;
 }
+
+/* 
+/*  For close modal button style
+*/
+
+.close-modal-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: fill var(--animation);
+}
+
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+  fill: var(--color-lightgreen);
+}
+
+/* 
+/*  Scrollbar styles
+*/
+
+*::-webkit-scrollbar {
+  height: 5px;
+  width: 7px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:hover,
+*::-webkit-scrollbar-thumb:focus {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--color-grey);
+  transition: background-color var(--animation);
+}
+
+*::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:focus {
+  background-color: var(--color-red);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--color-red);
+}

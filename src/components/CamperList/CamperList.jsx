@@ -1,12 +1,18 @@
 import { useSelector } from 'react-redux';
-import { selectCampers, selectIsLoading } from '../../redux/selectors';
+import {
+  selectCampers,
+  selectIsError,
+  selectIsLoading,
+} from '../../redux/selectors';
 import { CamperListItem } from '../CamperLIstItem/CamperListItem';
 import css from './CamperList.module.css';
 import { useState } from 'react';
+import { Skeleton } from '@mui/material';
 
 export const CamperList = () => {
   const campers = useSelector(selectCampers);
   const loading = useSelector(selectIsLoading);
+  const error = useSelector(selectIsError);
 
   const [isLoadMore, setIsLoadMore] = useState(true);
   const [maxItems, setMaxItems] = useState(4);
@@ -21,7 +27,23 @@ export const CamperList = () => {
 
   const visibleCampers = campers.slice(0, maxItems);
 
-  return (
+  const skeletonCount = 4;
+  const skeletons = Array.from({ length: skeletonCount });
+
+  return loading || error ? (
+    <div>
+      {skeletons.map((_, index) => (
+        <Skeleton
+          key={index}
+          variant="rectangular"
+          width={888}
+          height={360}
+          animation="wave"
+          sx={{ borderRadius: '20px', marginBottom: '32px' }}
+        />
+      ))}
+    </div>
+  ) : (
     <div>
       <ul className={css.list}>
         {visibleCampers.map((camper) => (

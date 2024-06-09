@@ -1,4 +1,3 @@
-import { keyframes } from '@emotion/react';
 import { CamperAdvantages } from '../CamperAdvantages/CamperAdvantages';
 import { Icon } from '../Icon/Icon';
 import css from './CamperListItem.module.css';
