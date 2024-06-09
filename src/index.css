@@ -84,23 +84,6 @@ input {
 }
 
 /* 
-/*  For close modal button style
-*/
-
-.close-modal-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  transition: fill var(--animation);
-}
-
-.close-modal-btn:hover,
-.close-modal-btn:focus {
-  fill: var(--color-lightgreen);
-}
-
-/* 
 /*  Scrollbar styles
 */
 
@@ -110,7 +93,7 @@ input {
 }
 *::-webkit-scrollbar-track {
   border-radius: 20px;
-  background-color: transparent;
+  background-color: inherit;
 }
 
 *::-webkit-scrollbar-track:hover,

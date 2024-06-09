@@ -1,8 +1,16 @@
+import { useState } from 'react';
 import { CamperAdvantages } from '../CamperAdvantages/CamperAdvantages';
 import { Icon } from '../Icon/Icon';
 import css from './CamperListItem.module.css';
+import { BaseModal } from '../BaseModal/BaseModal';
 
 export const CamperListItem = ({ camper }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
   return (
     <li className={css.container}>
       <div className={css.imgWrapper}>
@@ -60,8 +68,16 @@ export const CamperListItem = ({ camper }) => {
         </div>
         <p className={css.description}>{camper.description}</p>
         <CamperAdvantages camper={camper} />
-        <button className={css.button}>Show more</button>
+        <button
+          className={css.button}
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
+        >
+          Show more
+        </button>
       </div>
+      <BaseModal isOpen={isModalOpen} onClose={toggleModal}></BaseModal>
     </li>
   );
 };
