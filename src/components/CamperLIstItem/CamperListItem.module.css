@@ -1,0 +1,45 @@
+.container {
+  width: 888px;
+  display: flex;
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contentWrapper {
+  width: 526px;
+}
+
+.priceWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.priceContent {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.img {
+  border-radius: 10px;
+}
+
+.favorite {
+  background: white;
+}
+
+.favorite:hover {
+  color: var(--color-red);
+}
+
+.favorite:hover svg {
+  fill: var(--color-red);
+}
