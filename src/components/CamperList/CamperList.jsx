@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import {
-  selectCampers,
+  selectFilteredCampers,
   selectIsError,
   selectIsLoading,
 } from '../../redux/selectors';
@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { Skeleton } from '@mui/material';
 
 export const CamperList = () => {
-  const campers = useSelector(selectCampers);
+  const campers = useSelector(selectFilteredCampers);
   const loading = useSelector(selectIsLoading);
   const error = useSelector(selectIsError);
 
@@ -50,7 +50,7 @@ export const CamperList = () => {
           <CamperListItem camper={camper} key={camper._id} />
         ))}
       </ul>
-      {isLoadMore && !loading && (
+      {isLoadMore && !loading && campers.length > 4 && (
         <button
           className={css.button}
           onClick={() => {

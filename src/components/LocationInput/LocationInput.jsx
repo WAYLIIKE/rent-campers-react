@@ -1,9 +1,12 @@
 import { useId } from 'react';
 import css from './LocationInput.module.css';
 import { Icon } from '../Icon/Icon';
+import { changeLocation } from '../../redux/camper/camperSlice';
+import { useDispatch } from 'react-redux';
 
 export const LocationInput = () => {
   const inputId = useId();
+  const dispatch = useDispatch();
   return (
     <div className={css.container}>
       <label className={css.label} htmlFor={inputId}>
@@ -15,6 +18,7 @@ export const LocationInput = () => {
           type="text"
           id={inputId}
           placeholder="Country, City"
+          onChange={(evt) => dispatch(changeLocation(evt.target.value))}
         />
         <Icon
           id={'icon-location'}

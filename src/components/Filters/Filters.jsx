@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { Icon } from '../Icon/Icon';
 import css from './Filters.module.css';
+import { useDispatch } from 'react-redux';
+import { changeFilters } from '../../redux/camper/camperSlice';
 
 export const Filters = () => {
+  const dispatch = useDispatch();
+
   const [selectedFilters, setSelectedFilters] = useState({
     equipment: [],
     type: [],
@@ -96,7 +100,7 @@ export const Filters = () => {
         className={css.submit}
         type="submit"
         onClick={() => {
-          console.log(selectedFilters);
+          dispatch(changeFilters(selectedFilters));
           setSelectedFilters({
             equipment: [],
             type: [],

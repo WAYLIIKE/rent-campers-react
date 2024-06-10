@@ -5,8 +5,18 @@ const camperSlice = createSlice({
   name: 'camper',
   initialState: {
     items: [],
+    location: '',
+    filters: {},
     loading: false,
     error: false,
+  },
+  reducers: {
+    changeLocation: (state, action) => {
+      state.location = action.payload;
+    },
+    changeFilters: (state, action) => {
+      state.filters = action.payload;
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -26,3 +36,4 @@ const camperSlice = createSlice({
 });
 
 export const camperReducer = camperSlice.reducer;
+export const { changeLocation, changeFilters } = camperSlice.actions;
