@@ -3,16 +3,18 @@ import {
   selectFilteredCampers,
   selectIsError,
   selectIsLoading,
+  selectLocation,
 } from '../../redux/selectors';
 import { CamperListItem } from '../CamperLIstItem/CamperListItem';
 import css from './CamperList.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Skeleton } from '@mui/material';
 
 export const CamperList = () => {
   const campers = useSelector(selectFilteredCampers);
   const loading = useSelector(selectIsLoading);
   const error = useSelector(selectIsError);
+  const location = useSelector(selectLocation);
 
   const [isLoadMore, setIsLoadMore] = useState(true);
   const [maxItems, setMaxItems] = useState(4);
@@ -22,6 +24,7 @@ export const CamperList = () => {
       setIsLoadMore(false);
       return setMaxItems((prevValue) => prevValue + campers.length - count);
     }
+
     if (count < campers.length) setMaxItems((prevValue) => prevValue + 4);
   };
 
@@ -29,6 +32,19 @@ export const CamperList = () => {
 
   const skeletonCount = 4;
   const skeletons = Array.from({ length: skeletonCount });
+
+  // **
+  // Check some cases, when user use location input to prevent load more button generating when it makes no sense
+  // **
+  useEffect(() => {
+    if (location === '') {
+      setIsLoadMore(true);
+    }
+
+    if (campers.length <= maxItems) {
+      setIsLoadMore(false);
+    }
+  }, [location, maxItems, campers]);
 
   return loading || error ? (
     <div>
