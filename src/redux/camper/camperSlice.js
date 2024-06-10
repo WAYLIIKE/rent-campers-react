@@ -6,7 +6,7 @@ const camperSlice = createSlice({
   initialState: {
     items: [],
     location: '',
-    filters: {},
+    filters: { equipment: [], type: [] },
     loading: false,
     error: false,
   },

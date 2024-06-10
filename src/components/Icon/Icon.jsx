@@ -7,6 +7,7 @@ export const Icon = ({
   fill,
   stroke,
   isInputStyled = false,
+  isCloseStyled = false,
 }) => {
   const basePath =
     import.meta.env.MODE === 'production'
@@ -14,7 +15,9 @@ export const Icon = ({
       : '/';
   return (
     <svg
-      className={isInputStyled ? css.icon : null}
+      className={
+        isInputStyled ? css.icon : null || isCloseStyled ? css.close : null
+      }
       width={width}
       height={height}
       role="img"

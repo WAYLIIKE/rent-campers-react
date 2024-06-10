@@ -44,6 +44,10 @@ body {
   margin: 0;
 }
 
+div {
+  outline: none;
+}
+
 h1,
 h2,
 h3,
@@ -72,10 +76,7 @@ button {
   cursor: pointer;
   border: none;
   padding: 0;
-  background-color: transparent;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: -0.08px;
+  outline: none;
 }
 
 input {

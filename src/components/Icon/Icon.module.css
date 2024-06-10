@@ -7,3 +7,16 @@
   margin-left: 18px;
   transition: color 100ms ease-in;
 }
+
+.close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  cursor: pointer;
+  transition: var(--animation);
+}
+
+.close:hover,
+.close:focus {
+  color: var(--color-red);
+}

@@ -100,6 +100,7 @@ export const Filters = () => {
         className={css.submit}
         type="submit"
         onClick={() => {
+          console.log(selectedFilters);
           dispatch(changeFilters(selectedFilters));
           setSelectedFilters({
             equipment: [],

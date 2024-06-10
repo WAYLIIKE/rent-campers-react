@@ -24,10 +24,11 @@ export const BaseModal = ({ isOpen, onClose, children }) => {
       <div onClick={() => onClose()}>
         <Icon
           id={'icon-close'}
-          width={16}
-          height={16}
+          width={32}
+          height={32}
           fill="none"
           stroke="currentColor"
+          isCloseStyled={true}
         />
       </div>
       {children}

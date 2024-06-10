@@ -16,8 +16,22 @@ export const selectFilteredCampers = createSelector(
 );
 
 // export const selectFoundCampers = createSelector(
-//   [selectFilteredCampers, selectFilters],
-//   (campers, checkedFilters) => {
-//     return campers.filter((camper) => camper.details >= 1 &&);
+//   [selectCampers, selectFilters],
+//   (campers, filters) => {
+//     const { type = [], equipment = [] } = filters; // Встановлення значень за замовчуванням
+
+//     return campers.filter((camper) => {
+//       // Перевірка типу кемпера
+//       const typeMatch = type.length === 0 || type.includes(camper.type);
+
+//       // Перевірка обладнання кемпера
+//       const equipmentMatch =
+//         equipment.length === 0 ||
+//         equipment.every(
+//           (item) => camper.equipment && camper.equipment.includes(item)
+//         );
+
+//       return typeMatch && equipmentMatch;
+//     });
 //   }
 // );
