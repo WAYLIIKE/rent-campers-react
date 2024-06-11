@@ -36,19 +36,21 @@ export const CamperModal = ({ camper }) => {
         </div>
         <p className={css.priceContent}>€{camper.price}.00</p>
       </div>
-      <div className={css.imgContent}>
-        {camper.gallery.map((img, index) => (
-          <img
-            key={index}
-            className={css.img}
-            src={img}
-            alt={camper.name}
-            width={290}
-            height={310}
-          />
-        ))}
+      <div className={css.scrolledWrapper}>
+        <div className={css.imgContent}>
+          {camper.gallery.map((img, index) => (
+            <img
+              key={index}
+              className={css.img}
+              src={img}
+              alt={camper.name}
+              width={290}
+              height={310}
+            />
+          ))}
+        </div>
+        <p className={css.description}>{camper.description}</p>
       </div>
-      <p className={css.description}>{camper.description}</p>
     </div>
   );
 };

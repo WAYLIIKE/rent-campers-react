@@ -1,3 +1,7 @@
+.container {
+  max-width: 918px;
+}
+
 .mainContent {
   margin-bottom: 24px;
 }
@@ -47,4 +51,10 @@
 .description {
   color: var(--color-grey);
   line-height: 1.5;
+}
+
+.scrolledWrapper {
+  overflow-y: auto;
+  max-height: 500px;
+  padding-right: 16px;
 }

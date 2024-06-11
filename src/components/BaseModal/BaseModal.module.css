@@ -1,11 +1,11 @@
 .overlay {
   position: fixed;
-  padding: 20px;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
+  align-items: center;
   z-index: 999;
   background-color: rgba(47, 47, 47, 0.6);
   animation: fadeIn 0.2s ease-in-out forwards;
@@ -20,13 +20,11 @@
 }
 
 .modalContent {
-  padding: 40px;
+  padding: 40px 16px 40px 40px;
   margin: 40px auto;
   position: relative;
   border-radius: 20px;
   background-color: white;
-  width: 982px;
-  overflow-y: auto;
 }
 
 @keyframes fadeIn {
