@@ -6,7 +6,7 @@ export const CamperModal = ({ camper }) => {
   return (
     <div className={css.container}>
       <div className={css.mainContent}>
-        <p className={css.priceContent}>{camper.name}</p>
+        <h2 className={css.priceContent}>{camper.name}</h2>
         <div className={css.secondaryWrapper}>
           <div className={css.secondaryContent}>
             <Icon

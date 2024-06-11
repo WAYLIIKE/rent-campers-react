@@ -4,15 +4,14 @@ import css from './CamperAdvantages.module.css';
 export const CamperAdvantages = ({
   camper: {
     adults,
-    children,
     transmission,
     engine,
-    details: { kitchen, beds, airConditioner },
+    details: { kitchen, beds, freezer },
   },
 }) => {
   return (
     <ul className={css.container}>
-      {adults && (
+      {adults > 0 && (
         <li className={css.wrapper}>
           <Icon
             id={'icon-users'}
@@ -52,7 +51,7 @@ export const CamperAdvantages = ({
           </p>
         </li>
       )}
-      {kitchen && (
+      {kitchen > 0 && (
         <li className={css.wrapper}>
           <Icon
             id={'icon-eat'}
@@ -64,7 +63,7 @@ export const CamperAdvantages = ({
           <p className={css.text}>Kitchen</p>
         </li>
       )}
-      {beds && (
+      {beds > 0 && (
         <li className={css.wrapper}>
           <Icon
             id={'icon-bed'}
@@ -78,7 +77,7 @@ export const CamperAdvantages = ({
           </p>
         </li>
       )}
-      {airConditioner && (
+      {freezer > 0 && (
         <li className={css.wrapper}>
           <Icon
             id={'icon-wind'}
