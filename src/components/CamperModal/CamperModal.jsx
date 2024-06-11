@@ -1,4 +1,5 @@
 import { Icon } from '../Icon/Icon';
+import { Tabs } from '../Tabs/Tabs';
 import css from './CamperModal.module.css';
 
 export const CamperModal = ({ camper }) => {
@@ -50,6 +51,7 @@ export const CamperModal = ({ camper }) => {
           ))}
         </div>
         <p className={css.description}>{camper.description}</p>
+        <Tabs camper={camper} />
       </div>
     </div>
   );

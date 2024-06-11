@@ -51,6 +51,7 @@
 .description {
   color: var(--color-grey);
   line-height: 1.5;
+  margin-bottom: 44px;
 }
 
 .scrolledWrapper {
