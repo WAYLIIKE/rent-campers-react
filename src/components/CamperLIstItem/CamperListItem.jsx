@@ -3,6 +3,7 @@ import { CamperAdvantages } from '../CamperAdvantages/CamperAdvantages';
 import { Icon } from '../Icon/Icon';
 import css from './CamperListItem.module.css';
 import { BaseModal } from '../BaseModal/BaseModal';
+import { CamperModal } from '../CamperModal/CamperModal';
 
 export const CamperListItem = ({ camper }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -77,7 +78,9 @@ export const CamperListItem = ({ camper }) => {
           Show more
         </button>
       </div>
-      <BaseModal isOpen={isModalOpen} onClose={toggleModal}></BaseModal>
+      <BaseModal isOpen={isModalOpen} onClose={toggleModal}>
+        <CamperModal camper={camper} />
+      </BaseModal>
     </li>
   );
 };
