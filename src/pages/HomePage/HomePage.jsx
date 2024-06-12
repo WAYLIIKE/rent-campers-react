@@ -25,9 +25,9 @@ export default function HomePage() {
             <p className={css.span}>Explore, discover and enjoy</p>
             <p className={css.title}>
               unforgettable experiences with our campervans all over the world.
-              Our camper vans are modern and fully equipped allrounders that
+              Our campervans are modern and fully equipped allrounders that
               offer high living comfort in compact dimensions. Find your dream
-              campervan
+              campervan!
             </p>
             <NavLink to="/catalog" className={css.submit}>
               Find your dream campervan
