@@ -29,9 +29,11 @@ export default function FavoritesPage() {
         <div className={css.container}>
           <h1 className={css.title}>Favorite campers</h1>
           <div className={css.line}></div>
-          {savedCampers.map((camper) => (
-            <CamperListItem key={camper._id} camper={camper} />
-          ))}
+          <ul className={css.list}>
+            {savedCampers.map((camper) => (
+              <CamperListItem key={camper._id} camper={camper} />
+            ))}
+          </ul>
         </div>
       </Container>
     </div>
