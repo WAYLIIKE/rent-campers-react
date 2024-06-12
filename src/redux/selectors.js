@@ -5,6 +5,7 @@ export const selectIsLoading = (state) => state.camper.loading;
 export const selectIsError = (state) => state.camper.error;
 export const selectLocation = (state) => state.camper.location;
 export const selectFilters = (state) => state.camper.filters;
+export const selectFavorites = (state) => state.camper.favorites;
 
 export const selectFilteredCampers = createSelector(
   [selectCampers, selectLocation],

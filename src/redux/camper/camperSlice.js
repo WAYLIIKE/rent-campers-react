@@ -5,6 +5,7 @@ const camperSlice = createSlice({
   name: 'camper',
   initialState: {
     items: [],
+    favorites: [],
     location: '',
     filters: { equipment: [], type: [] },
     loading: false,
@@ -33,6 +34,19 @@ const camperSlice = createSlice({
         state.loading = false;
         state.error = true;
       }),
+  // .addCase(fetchCamperByID.pending, (state) => {
+  //   state.loading = true;
+  //   state.error = false;
+  // })
+  // .addCase(fetchCamperByID.fulfilled, (state, action) => {
+  //   state.loading = false;
+  //   state.error = false;
+  //   state.favorites.push(action.payload);
+  // })
+  // .addCase(fetchCamperByID.rejected, (state) => {
+  //   state.loading = false;
+  //   state.error = true;
+  // }),
 });
 
 export const camperReducer = camperSlice.reducer;

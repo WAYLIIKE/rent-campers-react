@@ -17,3 +17,16 @@ export const fetchCampers = createAsyncThunk(
     }
   }
 );
+
+// export const fetchCamperByID = createAsyncThunk(
+//   'campers/fetchByID',
+//   async (id, thunkAPI) => {
+//     try {
+//       const response = await axiosInstance.get(`/advert/${id}`);
+
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error);
+//     }
+//   }
+// );

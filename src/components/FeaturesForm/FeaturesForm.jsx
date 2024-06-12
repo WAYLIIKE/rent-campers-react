@@ -1,3 +1,4 @@
+import { Field, Form, Formik } from 'formik';
 import css from './FeaturesForm.module.css';
 
 export const FeaturesForm = () => {
@@ -7,35 +8,49 @@ export const FeaturesForm = () => {
       <p className={css.text}>
         Stay connected! We are always ready to help you.
       </p>
-      <form>
-        <input
-          className={css.input}
-          type="text"
-          name="name"
-          placeholder="Name"
-        />
-        <input
-          className={css.input}
-          type="email"
-          name="email"
-          placeholder="Email"
-        />
-        <input
-          className={css.input}
-          type="date"
-          name="date"
-          placeholder="Booking date"
-        />
-        <textarea
-          className={css.comment}
-          type="text"
-          name="comment"
-          placeholder="Comment"
-        ></textarea>
-        <button className={css.button} type="submit">
-          Send
-        </button>
-      </form>
+      <Formik
+        initialValues={{ name: '', email: '', date: '', comment: '' }}
+        onSubmit={() => {
+          window.location.reload();
+        }}
+      >
+        <Form>
+          <Field
+            className={css.input}
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+          />
+          <Field
+            className={css.input}
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <Field
+            className={css.input}
+            type="date"
+            id="date"
+            name="date"
+            placeholder="Booking date"
+            required
+          />
+          <Field
+            as="textarea"
+            className={css.comment}
+            id="comment"
+            name="comment"
+            placeholder="Comment"
+          ></Field>
+          <button className={css.button} type="submit">
+            Send
+          </button>
+        </Form>
+      </Formik>
     </div>
   );
 };

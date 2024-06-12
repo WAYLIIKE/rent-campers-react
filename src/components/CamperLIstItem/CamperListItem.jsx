@@ -1,16 +1,55 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CamperAdvantages } from '../CamperAdvantages/CamperAdvantages';
 import { Icon } from '../Icon/Icon';
 import css from './CamperListItem.module.css';
 import { BaseModal } from '../BaseModal/BaseModal';
 import { CamperModal } from '../CamperModal/CamperModal';
+import { useSelector } from 'react-redux';
+import { selectFavorites } from '../../redux/selectors';
 
 export const CamperListItem = ({ camper }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  // const savedCampers = useSelector(selectFavorites);
+
+  useEffect(() => {
+    const savedCampers = JSON.parse(localStorage.getItem('campers')) || [];
+    setIsFavorite(savedCampers.includes(camper._id));
+  }, [camper._id]);
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
   };
+
+  const handleFavoriteClick = () => {
+    const savedCampers = JSON.parse(localStorage.getItem('campers')) || [];
+    if (savedCampers.includes(camper._id)) {
+      const updatedCampers = savedCampers.filter((id) => id !== camper._id);
+      localStorage.setItem('campers', JSON.stringify(updatedCampers));
+      return setIsFavorite(false);
+    }
+
+    savedCampers.push(camper._id);
+    localStorage.setItem('campers', JSON.stringify(savedCampers));
+    setIsFavorite(true);
+  };
+
+  // const handleFavoriteClick = () => {
+  //   savedCampers.map((savedCamper) => {
+  //     if (savedCamper.includes(camper._id)) {
+  //       const updatedCampers = savedCampers.filter(
+  //         (savedCamper) => savedCamper.id !== camper._id
+  //       );
+  //       localStorage.setItem('campers', JSON.stringify(updatedCampers));
+  //       return setIsFavorite(false);
+  //     }
+
+  //     savedCampers.push(camper);
+  //     localStorage.setItem('campers', JSON.stringify(savedCamper));
+  //     setIsFavorite(true);
+  //   });
+  // };
 
   return (
     <li className={css.container}>
@@ -28,14 +67,27 @@ export const CamperListItem = ({ camper }) => {
           <p className={css.priceContent}>{camper.name}</p>
           <div className={css.priceWrapper}>
             <p className={css.priceContent}>€{camper.price}.00</p>
-            <button className={css.favorite}>
-              <Icon
-                id={'icon-favorite'}
-                width={24}
-                height={24}
-                fill="none"
-                stroke="currentColor"
-              />
+            <button
+              className={css.favorite}
+              onClick={() => handleFavoriteClick()}
+            >
+              {isFavorite ? (
+                <Icon
+                  id={'icon-favorite'}
+                  width={24}
+                  height={24}
+                  fill="var(--color-red)"
+                  stroke="var(--color-red)"
+                />
+              ) : (
+                <Icon
+                  id={'icon-favorite'}
+                  width={24}
+                  height={24}
+                  fill="none"
+                  stroke="currentColor"
+                />
+              )}
             </button>
           </div>
         </div>
@@ -45,8 +97,8 @@ export const CamperListItem = ({ camper }) => {
               id={'icon-star'}
               width={16}
               height={16}
-              fill="none"
-              stroke="currentColor"
+              fill="var(--color-yellow)"
+              stroke="var(--color-yellow)"
             />
             <p className={css.rating}>
               {camper.rating}(

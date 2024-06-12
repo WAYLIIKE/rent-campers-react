@@ -13,8 +13,8 @@ export const CamperModal = ({ camper }) => {
               id={'icon-star'}
               width={16}
               height={16}
-              fill="none"
-              stroke="currentColor"
+              fill="var(--color-yellow)"
+              stroke="var(--color-yellow)"
             />
             <p className={css.rating}>
               {camper.rating}(

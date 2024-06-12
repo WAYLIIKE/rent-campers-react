@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCampers } from '../../redux/camper/camperOps';
 import { CamperList } from '../../components/CamperList/CamperList';
+import { Logo } from '../../components/Logo/Logo';
 
 export default function CatalogPage() {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ export default function CatalogPage() {
         <title>Catalog - Campervaneo</title>
       </Helmet>
       <Container>
+        <Logo />
         <div className={css.container}>
           <SearchBar />
           <CamperList />
