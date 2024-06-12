@@ -66,6 +66,9 @@ export const CamperList = () => {
           <CamperListItem camper={camper} key={camper._id} />
         ))}
       </ul>
+      {visibleCampers.length === 0 ? (
+        <p className={css.empty}>There are no campervans with that location</p>
+      ) : null}
       {isLoadMore && !loading && campers.length > 4 && (
         <button
           className={css.button}
