@@ -34,7 +34,7 @@ export const Tabs = ({ camper }) => {
 
       <div className={css.tabWrapper}>
         {activeTab === 'features' && <Features camper={camper} />}
-        {activeTab === 'reviews' && <Reviews />}
+        {activeTab === 'reviews' && <Reviews camper={camper} />}
       </div>
     </div>
   );
