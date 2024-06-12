@@ -1,1 +1,0 @@
-import{j as e,H as r}from"./index-eaf0ab76.js";import{C as o,L as s}from"./Container-9af769fe.js";function n(){return e.jsxs("div",{children:[e.jsx(r,{children:e.jsx("title",{children:"Home - Campervaneo"})}),e.jsx(o,{children:e.jsx(s,{})})]})}export{n as default};
