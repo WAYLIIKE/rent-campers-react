@@ -15,7 +15,7 @@ export default function HomePage() {
         <Logo />
         <div className={css.container}>
           <img
-            src="/public/home.jpg"
+            src="./home.jpg"
             alt="Family camper"
             className={css.img}
             width={700}
