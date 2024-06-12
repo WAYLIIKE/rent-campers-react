@@ -9,18 +9,27 @@ import {
   selectFavorites,
   selectIsError,
   selectIsLoading,
+  selectLocation,
 } from '../../redux/selectors';
 import { useEffect } from 'react';
 import { fetchCampers } from '../../redux/camper/camperOps';
 import { Skeleton } from '@mui/material';
+import { changeLocation } from '../../redux/camper/camperSlice';
 
 export default function FavoritesPage() {
   const savedCampers = useSelector(selectFavorites);
   const campers = useSelector(selectCampers);
   const loading = useSelector(selectIsLoading);
   const error = useSelector(selectIsError);
+  const location = useSelector(selectLocation);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (location !== '') {
+      dispatch(changeLocation(''));
+    }
+  }, [location, dispatch]);
 
   useEffect(() => {
     if (campers.length === 0) dispatch(fetchCampers());

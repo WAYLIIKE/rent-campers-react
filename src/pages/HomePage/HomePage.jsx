@@ -4,8 +4,16 @@ import { Container } from '../../components/Container/Container';
 
 import css from './HomePage.module.css';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectLocation } from '../../redux/selectors';
+import { changeLocation } from '../../redux/camper/camperSlice';
 
 export default function HomePage() {
+  const location = useSelector(selectLocation);
+  const dispatch = useDispatch();
+
+  if (location != '') dispatch(changeLocation(''));
+
   return (
     <div>
       <Helmet>
