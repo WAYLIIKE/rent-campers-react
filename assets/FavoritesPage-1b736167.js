@@ -1,0 +1,1 @@
+import{j as e,H as r}from"./index-808f2965.js";import{C as s}from"./Container-e98fdf94.js";function n(){return e.jsxs("div",{children:[e.jsx(r,{children:e.jsx("title",{children:"Favorites - Campervaneo"})}),e.jsx(s,{children:e.jsx("p",{children:"Blue cheese"})})]})}export{n as default};
