@@ -23,7 +23,6 @@ const camperSlice = createSlice({
     },
     addFavorite: (state, action) => {
       state.favorites.push(action.payload);
-      // Оновлення localStorage
       const updatedFavorites = state.favorites.map((fav) => fav._id);
       localStorage.setItem('campers', JSON.stringify(updatedFavorites));
     },
@@ -31,7 +30,6 @@ const camperSlice = createSlice({
       state.favorites = state.favorites.filter(
         (camper) => camper._id !== action.payload
       );
-      // Оновлення localStorage
       const updatedFavorites = state.favorites.map((fav) => fav._id);
       localStorage.setItem('campers', JSON.stringify(updatedFavorites));
     },
