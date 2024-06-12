@@ -3,17 +3,19 @@ import { Container } from '../../components/Container/Container';
 import { SearchBar } from '../../components/SearchBar/SearchBar';
 import css from './CatalogPage.module.css';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchCampers } from '../../redux/camper/camperOps';
 import { CamperList } from '../../components/CamperList/CamperList';
 import { Logo } from '../../components/Logo/Logo';
+import { selectCampers } from '../../redux/selectors';
 
 export default function CatalogPage() {
   const dispatch = useDispatch();
+  const campers = useSelector(selectCampers);
 
   useEffect(() => {
-    dispatch(fetchCampers());
-  });
+    if (campers.length === 0) dispatch(fetchCampers());
+  }, [dispatch, campers]);
 
   return (
     <div>

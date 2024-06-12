@@ -2,18 +2,22 @@ import { Helmet } from 'react-helmet-async';
 import { Container } from '../../components/Container/Container';
 import { Logo } from '../../components/Logo/Logo';
 import css from './FavoritesPage.module.css';
-// import { useEffect, useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { fetchCamperByID } from '../../redux/camper/camperOps';
+import { useDispatch, useSelector } from 'react-redux';
+import { CamperListItem } from '../../components/CamperLIstItem/CamperListItem';
+import { selectCampers, selectFavorites } from '../../redux/selectors';
+import { useEffect } from 'react';
+import { fetchCampers } from '../../redux/camper/camperOps';
 
 export default function FavoritesPage() {
-  // const [savedCampers, setSavedCampers] = useState([]);
+  const savedCampers = useSelector(selectFavorites);
 
-  // useEffect(() => {
-  //   setSavedCampers(JSON.parse(localStorage.getItem('campers')) || []);
-  //   if (savedCampers)
-  //     savedCampers.forEach((camper) => dispatch(fetchCamperByID(camper)));
-  // }, [setSavedCampers, savedCampers, dispatch]);
+  const dispatch = useDispatch();
+
+  const campers = useSelector(selectCampers);
+
+  useEffect(() => {
+    if (campers.length === 0) dispatch(fetchCampers());
+  }, [dispatch, campers]);
 
   return (
     <div>
@@ -25,6 +29,9 @@ export default function FavoritesPage() {
         <div className={css.container}>
           <h1 className={css.title}>Favorite campers</h1>
           <div className={css.line}></div>
+          {savedCampers.map((camper) => (
+            <CamperListItem key={camper._id} camper={camper} />
+          ))}
         </div>
       </Container>
     </div>

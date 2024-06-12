@@ -4,52 +4,42 @@ import { Icon } from '../Icon/Icon';
 import css from './CamperListItem.module.css';
 import { BaseModal } from '../BaseModal/BaseModal';
 import { CamperModal } from '../CamperModal/CamperModal';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from '../../redux/selectors';
+import { addFavorite, deleteFavorite } from '../../redux/camper/camperSlice';
 
 export const CamperListItem = ({ camper }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
-  // const savedCampers = useSelector(selectFavorites);
+  const dispatch = useDispatch();
+
+  const savedCampers = useSelector(selectFavorites);
 
   useEffect(() => {
-    const savedCampers = JSON.parse(localStorage.getItem('campers')) || [];
-    setIsFavorite(savedCampers.includes(camper._id));
+    const LSCampers = JSON.parse(localStorage.getItem('campers')) || [];
+    setIsFavorite(LSCampers.includes(camper._id));
   }, [camper._id]);
+
+  useEffect(() => {
+    localStorage.setItem(
+      'campers',
+      JSON.stringify(savedCampers.map((camper) => camper._id))
+    );
+  }, [savedCampers]);
+
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      dispatch(deleteFavorite(camper._id));
+    } else {
+      dispatch(addFavorite(camper));
+    }
+    setIsFavorite(!isFavorite);
+  };
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
   };
-
-  const handleFavoriteClick = () => {
-    const savedCampers = JSON.parse(localStorage.getItem('campers')) || [];
-    if (savedCampers.includes(camper._id)) {
-      const updatedCampers = savedCampers.filter((id) => id !== camper._id);
-      localStorage.setItem('campers', JSON.stringify(updatedCampers));
-      return setIsFavorite(false);
-    }
-
-    savedCampers.push(camper._id);
-    localStorage.setItem('campers', JSON.stringify(savedCampers));
-    setIsFavorite(true);
-  };
-
-  // const handleFavoriteClick = () => {
-  //   savedCampers.map((savedCamper) => {
-  //     if (savedCamper.includes(camper._id)) {
-  //       const updatedCampers = savedCampers.filter(
-  //         (savedCamper) => savedCamper.id !== camper._id
-  //       );
-  //       localStorage.setItem('campers', JSON.stringify(updatedCampers));
-  //       return setIsFavorite(false);
-  //     }
-
-  //     savedCampers.push(camper);
-  //     localStorage.setItem('campers', JSON.stringify(savedCamper));
-  //     setIsFavorite(true);
-  //   });
-  // };
 
   return (
     <li className={css.container}>
