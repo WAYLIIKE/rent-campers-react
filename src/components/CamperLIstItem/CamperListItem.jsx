@@ -9,12 +9,11 @@ import { selectFavorites } from '../../redux/selectors';
 import { addFavorite, deleteFavorite } from '../../redux/camper/camperSlice';
 
 export const CamperListItem = ({ camper }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
-
+  const savedCampers = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
-  const savedCampers = useSelector(selectFavorites);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     const LSCampers = JSON.parse(localStorage.getItem('campers')) || [];
